@@ -21,7 +21,7 @@ app = xw.App(visible = True, add_book = False)
 
 # Create 20 Excel files 
 for i in range(1,21):
-    workbook = app.books.add() # new book
+    workbook = app.books.add() # connect to a new book
     file_path = dst_folder / f'分公司{i}.xlsx' # combine the absolute path and the relative path
     workbook.save(file_path)
     workbook.close()
