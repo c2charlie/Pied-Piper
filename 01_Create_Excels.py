@@ -13,14 +13,16 @@ from pathlib import Path
 import xlwings as xw
 
 dst_folder = Path('C:\\Users\\Lili Zheng\\Desktop')
-# 
+# create a new folder with pathlib and write files into it
 dst_folder.mkdir(parents = True, exist_ok = True)
 
+# App classes corresponds to an Excel instance
 app = xw.App(visible = True, add_book = False)
 
+# Create 20 Excel files 
 for i in range(1,21):
-    workbook = app.books.add()
-    file_path = dst_folder / f'分公司{i}.xlsx'
+    workbook = app.books.add() # new book
+    file_path = dst_folder / f'分公司{i}.xlsx' # combine the absolute path and the relative path
     workbook.save(file_path)
     workbook.close()
 app.quit()
